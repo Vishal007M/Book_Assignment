@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <color name="red_400">#EF5350</color>
+    <color name="red_btn_front">#ff3e1d</color>
+    <color name="red_button">#DD175E</color>
+    <color name="red">#B3BF0A0A</color>
+    <color name="pink">#CCBD337B</color>
+    <color name="green_btn_front">#71dd37</color>
+    <color name="green">#4CAF50</color>
+    <color name="orange_btn_front">#ffab00</color>
+    <color name="orange">#EAAF35</color>
+    <color name="gold">#FFD700</color>
+
+    <color name="purple_btn_back">#DCDCFD</color>
+    <color name="red_btn_back">#FFDAD5</color>
+    <color name="green_btn_back">#E2FAD7</color>
+    <color name="orange_btn_back">#FBEDCD</color>
+
+    <!-- compulsory -->
+    <color name="hint">#646262</color>
+    <color name="gray">#8B8B8B</color>
+    <color name="light_grey">#E0E0E0</color>
+    <color name="background_gray">#F9F9F9</color>
+
+    <color name="dark_purple">#110332</color>
+    <color name="purple_0">#2F0375</color>
+    <color name="purple_1">#2C0192</color>
+    <color name="purple_2">#612DB5</color>
+    <color name="purple_3">#8253D8</color>
+    <color name="purple_4">#B288F6</color>
+    <color name="purple_5">#DBBCFF</color>
+    <color name="purple_6">#CEBBE1</color>
+    <color name="primary_btn_back">#E4CFFD</color>
+    <color name="background_blue">#F1EDF3</color>
+    <color name="blur_purple">#9890AE</color>
+    <color name="purple_btn_front">#696cff</color>
+    <color name="transparent">#00F1F0F2</color>
+
+
+    <color name="mainColor">#2f6da7</color>
+    <color name="accentColor">#26877E</color>
+    <color name="secondaryColor">#EFF5FB</color>
+
+
+
+</resources>

@@ -1,0 +1,50 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.BookAsignment" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+
+        <item name="colorPrimary">@color/purple_0</item>
+        <item name="colorPrimaryVariant">@color/purple_btn_front</item>
+        <item name="colorOnPrimary">@color/black</item>
+        <item name="colorPrimaryDark">@color/black</item>
+
+        <!-- Secondary brand color. -->
+        <!-- <item name="colorSecondary">@color/purple_1</item> -->
+        <!-- <item name="colorSecondaryVariant">@color/purple_3</item> -->
+        <item name="colorAccent">@color/gray</item>
+        <item name="android:textColorSecondary">@color/gray</item>
+        <item name="colorOnSecondaryContainer">@color/purple_1</item>
+
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor">@color/dark_purple</item>
+        <item name="android:scrollbarThumbVertical">@android:color/transparent</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">15sp</item>
+        <item name="fontFamily">@font/poppins_medium</item>
+
+        <item name="shapeAppearanceMediumComponent">@style/ShapeAppearance.Material3.MediumComponent</item>
+    </style>
+
+
+
+    <style name="ShapeAppearance.Material3.MediumComponent" parent="ShapeAppearance.MaterialComponents.MediumComponent">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">20dp</item>
+    </style>
+
+    <style name="ShapeAppearance.Material3.MediumComponent.Round" parent="ShapeAppearance.MaterialComponents.MediumComponent">
+        <item name="cornerFamilyBottomLeft">rounded</item>
+        <item name="cornerFamilyBottomRight">rounded</item>
+        <item name="cornerSizeBottomLeft">30dp</item>
+        <item name="cornerSizeBottomRight">30dp</item>
+    </style>
+
+    <style name="ShapeAppearance.Material3.MediumComponent.TopRound" parent="ShapeAppearance.MaterialComponents.MediumComponent">
+        <item name="cornerFamilyTopLeft">rounded</item>
+        <item name="cornerFamilyTopRight">rounded</item>
+        <item name="cornerSizeTopLeft">30dp</item>
+        <item name="cornerSizeTopRight">30dp</item>
+    </style>
+
+</resources>
