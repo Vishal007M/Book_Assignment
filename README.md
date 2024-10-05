@@ -1,6 +1,6 @@
 PDF Book Viewer
 
-•	Using Material Designs card view, buttons
+•	Using Material Designs like - card view, buttons
 
 •	Using PDF Renderer for viewing Pdf Files
 
