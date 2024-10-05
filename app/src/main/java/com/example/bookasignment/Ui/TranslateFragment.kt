@@ -42,7 +42,6 @@ class TranslateFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentTranslateBinding.inflate(inflater, container, false)
-
         return binding.root
     }
 
@@ -55,50 +54,40 @@ class TranslateFragment : Fragment() {
             ViewModelFactory(RetrofitClient.apiService)
         )[TranslateDataViewModel::class.java]
 
-
         getData = arguments?.getString("inputData")
 
-
         if (!getData.isNullOrEmpty()) {
-
-            val textToTranslate = getData?.take(2080) // Take only the first 480 characters
-//            if (!textToTranslate.isNullOrEmpty()) {
-//                translateText(textToTranslate)
-//            }else{
-//                Toast.makeText(requireContext(), "no data", Toast.LENGTH_SHORT).show()
-//            }
+            val textToTranslate = getData?.take(2080) // Take only the first 2080 characters
 
             // Make the translate API call
-            translateViewModel.getTranslateVM(KEY, "en", "hi", textToTranslate!!.toString())
-            translateViewModel.getTranslateResponse.observe(viewLifecycleOwner) {
-
-                binding.translatedText.text = it[0]?.translatedText
-
+            translateViewModel.getTranslateVM(KEY, "en", "hi", textToTranslate!!)
+            translateViewModel.getTranslateResponse.observe(viewLifecycleOwner) { response ->
+                // Ensure the response is not null or empty before accessing it
+                if (response.isNotEmpty()) {
+                    binding.translatedText.text = response[0]?.translatedText
+                } else {
+                    Toast.makeText(requireContext(), "Translation failed", Toast.LENGTH_SHORT).show()
+                }
             }
-
         }
 
-        // parsing data for web search
+        // Parsing data for web search
         binding.searchButton.setOnClickListener {
             val selectedText = getSelectedText()
 
             if (selectedText.isNotEmpty()) {
-//                Toast.makeText(requireContext(), selectedText, Toast.LENGTH_SHORT).show()
-
-                val url = "https://www.google.com/search?q=$selectedText"
+                // Encode the selected text for the URL
+                val url = "https://www.google.com/search?q=${Uri.encode(selectedText)}"
                 val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
                 startActivity(intent)
-
             } else {
                 Toast.makeText(requireContext(), "No text selected", Toast.LENGTH_SHORT).show()
             }
         }
-
-
     }
 
     private fun translateText(text: String) {
-        val url = "https://api.mymemory.translated.net/get?q=$text&langpair=en|hi"
+        val url = "https://api.mymemory.translated.net/get?q=${Uri.encode(text)}&langpair=en|hi"
 
         val request = Request.Builder()
             .url(url)
@@ -115,21 +104,18 @@ class TranslateFragment : Fragment() {
 
                     val jsonData = response.body?.string()
                     val jsonObject = JSONObject(jsonData)
-                    val translatedText =
-                        jsonObject.getJSONObject("responseData").getString("translatedText")
+                    val translatedText = jsonObject.getJSONObject("responseData").getString("translatedText")
 
                     // Update the TextView with the translated text
                     requireActivity().runOnUiThread {
                         binding.translatedText.text = translatedText
-                        // Update this line to set the translated text
-
                     }
                 }
             }
         })
     }
 
-    // Get the selected text from the Textview
+    // Get the selected text from the TextView
     private fun getSelectedText(): String {
         val start = binding.translatedText.selectionStart
         val end = binding.translatedText.selectionEnd
@@ -140,5 +126,4 @@ class TranslateFragment : Fragment() {
             ""
         }
     }
-
 }
